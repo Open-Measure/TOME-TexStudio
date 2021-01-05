@@ -1,0 +1,80 @@
+\documentclass{article}
+
+% COLORS
+
+\usepackage{xcolor} % Required for specifying colors by name
+\definecolor{White_Color}{RGB}{255,255,255} 
+\definecolor{DarkBlue_Color}{RGB}{0,102,255} 
+\definecolor{StandardBlue_Color}{RGB}{85,153,255} 
+\definecolor{LightBlue_Color}{RGB}{170,204,255} 
+\definecolor{DarkGrey_Color}{RGB}{153,153,153} 
+\definecolor{StandardGrey_Color}{RGB}{179,179,179} 
+
+% THEOREMS
+
+\usepackage{amsthm}
+
+% SECTION HEADERS FORMATTING
+
+\usepackage{titlesec}
+
+\titleformat{\subsubsection}
+{\normalfont\fontsize{12}{15}\bfseries}{\thesection}{1em}{}
+
+% BOXES
+
+\usepackage[many]{tcolorbox}
+\tcbuselibrary{theorems}
+
+% DICTIONARY DEFINITIONS
+
+\newtcbtheorem[]{DIC_Def}{Definition}%
+{colback=White_Color,colframe=StandardBlue_Color,fonttitle=\bfseries}{th}
+
+% BLOCK QUOTES
+
+% References:
+% - https://tex.stackexchange.com/questions/277777/block-quote-with-big-quotation-marks-in-margin
+
+\newtcolorbox{DIC_BlockQuote}{%
+	enhanced jigsaw, 
+	breakable,      % allow page breaks
+	frame hidden,   % hide the default frame
+	left=0cm,       % left margin
+	right=0cm,      % right margin
+	overlay={%
+		\node [scale=6,
+		text=StandardBlue_Color,
+		inner sep=0pt,] at ([xshift=-0.6cm,yshift=-1cm]frame.north west){``}; 
+		\node [scale=6,
+		text=StandardBlue_Color,
+		inner sep=0pt,] at ([xshift=0.6cm]frame.south east){''};  
+	},
+	% paragraph skips obeyed within tcolorbox
+	parbox=false,
+}
+
+% DOCUMENT
+
+\begin{document}
+	
+	Book start \\
+	
+	\subsubsection*{Term}{
+		\begin{DIC_Def}{}{}This is a definition.\end{DIC_Def}
+		\begin{DIC_Def}{Context}{}This is a definition.\end{DIC_Def}
+		\begin{DIC_BlockQuote}This is a quote.\end{DIC_BlockQuote}
+	}
+
+	\subsubsection*{Another Term}{
+	\begin{DIC_Def}{}{}This is a definition.\end{DIC_Def}
+	\begin{DIC_Def}{Context}{}This is a definition.\end{DIC_Def}
+	\begin{DIC_BlockQuote}This is a quote.\end{DIC_BlockQuote}
+	}
+
+\input{confluence-page-latex/DIC_1027080193}
+\input{confluence-page-latex/DIC_998244645}
+	
+	Book end \\
+	
+\end{document}
