@@ -17,6 +17,42 @@
 \definecolor{DarkGrey_Color}{RGB}{153,153,153} 
 \definecolor{StandardGrey_Color}{RGB}{179,179,179} 
 
+
+
+%----------------------------------------------------------------------------------------
+%	HEADERS AND FOOTERS
+%----------------------------------------------------------------------------------------
+
+\usepackage{fancyhdr} % Required for header and footer configuration
+
+\pagestyle{fancy} % Enable the custom headers and footers
+
+\renewcommand{\chaptermark}[1]{\markboth{\sffamily\normalsize\bfseries\chaptername\ \thechapter.\ #1}{}} % Styling for the current chapter in the header
+\renewcommand{\sectionmark}[1]{\markright{\sffamily\normalsize\thesection\hspace{5pt}#1}{}} % Styling for the current section in the header
+
+\fancyhf{} % Clear default headers and footers
+\fancyhead[LE,RO]{\sffamily\normalsize\thepage} % Styling for the page number in the header
+\fancyhead[LO]{\rightmark} % Print the nearest section name on the left side of odd pages
+\fancyhead[RE]{\leftmark} % Print the current chapter name on the right side of even pages
+%\fancyfoot[C]{\thepage} % Uncomment to include a footer
+
+\renewcommand{\headrulewidth}{0.5pt} % Thickness of the rule under the header
+
+\fancypagestyle{plain}{% Style for when a plain pagestyle is specified
+	\fancyhead{}\renewcommand{\headrulewidth}{0pt}%
+}
+
+% Removes the header from odd empty pages at the end of chapters
+\makeatletter
+\renewcommand{\cleardoublepage}{
+	\clearpage\ifodd\c@page\else
+	\hbox{}
+	\vspace*{\fill}
+	\thispagestyle{empty}
+	\newpage
+	\fi}
+
+
 %	PART HEADINGS
 
 
@@ -166,13 +202,12 @@
 	{.1ex}
 	{\normalfont\small\sffamily\bfseries}}
 
+
 % DOCUMENT
 
 \begin{document}
 	
----------------------------------------------------------------------
 %	TITLE PAGE
-%----------------------------------------------------------------------------------------
 
 \begingroup
 \thispagestyle{empty} % Suppress headers and footers on the title page
@@ -185,9 +220,7 @@
 \vfill
 \endgroup
 
-%----------------------------------------------------------------------------------------
 %	COPYRIGHT PAGE
-%----------------------------------------------------------------------------------------
 
 \newpage
 ~\vfill
@@ -203,9 +236,7 @@
 
 \noindent \textit{First printing, December 2020} % Printing/edition date
 
-%----------------------------------------------------------------------------------------
 %	TABLE OF CONTENTS
-%----------------------------------------------------------------------------------------
 
 %\usechapterimagefalse % If you don't want to include a chapter image, use this to toggle images off - it can be enabled later with \usechapterimagetrue
 
@@ -223,7 +254,7 @@
 %	PART
 %----------------------------------------------------------------------------------------
 
-\part{Part One}		
+\part{Part 1}		
 		
 	\paragraph{} content \emph{text}
 	
@@ -239,7 +270,7 @@
 	\begin{DIC_BlockQuote}This is a quote.\end{DIC_BlockQuote}
 	}
 
-\part{Part Two}	
+\part{Part 2}	
 
 
 \input{confluence-page-latex/DIC_Term_Inclusion_List}
