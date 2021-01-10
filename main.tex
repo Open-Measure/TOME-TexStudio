@@ -1,4 +1,6 @@
-\documentclass{article}
+% DOCUMENT CLASS
+
+\documentclass[11pt,fleqn]{book} % Default font size and left-justified equations
 
 % UNICODE CHARACTERS
 
@@ -14,6 +16,12 @@
 \definecolor{LightBlue_Color}{RGB}{170,204,255} 
 \definecolor{DarkGrey_Color}{RGB}{153,153,153} 
 \definecolor{StandardGrey_Color}{RGB}{179,179,179} 
+
+%	PART HEADINGS
+
+
+%	CHAPTER HEADINGS
+
 
 % HYPERLINKS
 
@@ -32,7 +40,7 @@
 	bookmarksopen=false
 }
 
-\urlstyle{same}
+%\urlstyle{same}
 
 \usepackage{bookmark}
 \bookmarksetup{
@@ -43,7 +51,7 @@
 		\bookmarksetup{bold}%
 		\fi
 		\ifnum\bookmarkget{level}=-1 % part
-		\bookmarksetup{color=ocre,bold}%
+		\bookmarksetup{color=StandardBlue_Color,bold}%
 		\fi
 	}
 }
@@ -140,7 +148,7 @@
 %	SECTION NUMBERING IN THE MARGIN
 
 \makeatletter
-\renewcommand{\@seccntformat}[1]{\llap{\textcolor{ocre}{\csname the#1\endcsname}\hspace{1em}}}                    
+\renewcommand{\@seccntformat}[1]{\llap{\textcolor{StandardBlue_Color}{\csname the#1\endcsname}\hspace{1em}}}                    
 \renewcommand{\section}{\@startsection{section}{1}{\z@}
 	{-4ex \@plus -1ex \@minus -.4ex}
 	{1ex \@plus.2ex }
@@ -162,8 +170,61 @@
 
 \begin{document}
 	
-	Book start \\
-	
+---------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\begingroup
+\thispagestyle{empty} % Suppress headers and footers on the title page
+\begin{tikzpicture}[remember picture,overlay]
+%%	\node[inner sep=0pt] (background) at (current page.center) {\includegraphics[width=\paperwidth]{background.pdf}};
+	\draw (current page.center) node [fill=LightBlue_Color!30!white,fill opacity=0.6,text opacity=1,inner sep=1cm]{\Huge\centering\bfseries\sffamily\parbox[c][][t]{\paperwidth}{\centering The Open-Measure Encyclopedia\\[15pt] % Book title
+			{\Large Identity and Access Management}\\[20pt] % Subtitle
+			{\huge David DORET}}}; % Author name
+\end{tikzpicture}
+\vfill
+\endgroup
+
+%----------------------------------------------------------------------------------------
+%	COPYRIGHT PAGE
+%----------------------------------------------------------------------------------------
+
+\newpage
+~\vfill
+\thispagestyle{empty}
+
+\noindent Copyright \copyright\ 2020 Open-Measure\\ % Copyright notice
+
+\noindent \textsc{Published by Open-Measure}\\ % Publisher
+
+\noindent \textsc{https://open-measure.org}\\ % URL
+
+\noindent Licensed under the Creative Commons Attribution-NonCommercial 3.0 Unported License (the ``License''). You may not use this file except in compliance with the License. You may obtain a copy of the License at \url{http://creativecommons.org/licenses/by-nc/3.0}. Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an \textsc{``as is'' basis, without warranties or conditions of any kind}, either express or implied. See the License for the specific language governing permissions and limitations under the License.\\ % License information, replace this with your own license (if any)
+
+\noindent \textit{First printing, December 2020} % Printing/edition date
+
+%----------------------------------------------------------------------------------------
+%	TABLE OF CONTENTS
+%----------------------------------------------------------------------------------------
+
+%\usechapterimagefalse % If you don't want to include a chapter image, use this to toggle images off - it can be enabled later with \usechapterimagetrue
+
+%% \chapterimage{chapter_head_1.pdf} % Table of contents heading image
+
+\pagestyle{empty} % Disable headers and footers for the following pages
+
+\tableofcontents % Print the table of contents itself
+
+\cleardoublepage % Forces the first chapter to start on an odd page so it's on the right side of the book
+
+%% \pagestyle{fancy} % Enable headers and footers again
+
+%----------------------------------------------------------------------------------------
+%	PART
+%----------------------------------------------------------------------------------------
+
+\part{Part One}		
+		
 	\paragraph{} content \emph{text}
 	
 	\subsubsection*{Term}{
@@ -177,6 +238,9 @@
 	\begin{DIC_Def}{Context}{}This is a definition.\end{DIC_Def}
 	\begin{DIC_BlockQuote}This is a quote.\end{DIC_BlockQuote}
 	}
+
+\part{Part Two}	
+
 
 \input{confluence-page-latex/DIC_Term_Inclusion_List}
 %\input{confluence-page-latex/DIC_TEST}
