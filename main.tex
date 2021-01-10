@@ -49,9 +49,11 @@
 
 % LISTS
 
-\usepackage{enumitem}
+\usepackage{enumitem} % Customize lists
 % \setlist{parsep=0pt,listparindent=\parindent}
 % \begin{enumerate}
+\setlist{nolistsep} % Reduce spacing between bullet points and numbered lists
+
 
 % BLOCK QUOTES
 
@@ -75,6 +77,42 @@
 	% paragraph skips obeyed within tcolorbox
 	parbox=false,
 }
+
+% PICTURES
+
+\usepackage{graphicx} % Required for including pictures
+\graphicspath{{Pictures/}} % Specifies the directory where pictures are stored
+
+% MISC.
+
+\usepackage{tikz} % Required for drawing custom shapes
+\usepackage{booktabs} % Required for nicer horizontal rules in tables
+
+%	MARGINS
+
+\usepackage{geometry} % Required for adjusting page dimensions and margins
+\geometry{
+	paper=a4paper, % Paper size, change to letterpaper for US letter size
+	top=3cm, % Top margin
+	bottom=3cm, % Bottom margin
+	left=3cm, % Left margin
+	right=3cm, % Right margin
+	headheight=14pt, % Header height
+	footskip=1.4cm, % Space from the bottom margin to the baseline of the footer
+	headsep=10pt, % Space from the top margin to the baseline of the header
+	%showframe, % Uncomment to show how the type block is set on the page
+}
+
+% FONTS
+
+\usepackage{avant} % Use the Avantgarde font for headings
+%\usepackage{times} % Use the Times font for headings
+\usepackage{mathptmx} % Use the Adobe Times Roman as the default text font together with math symbols from the Sym­bol, Chancery and Com­puter Modern fonts
+
+\usepackage{microtype} % Slightly tweak font spacing for aesthetics
+\usepackage[utf8]{inputenc} % Required for including letters with accents
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+
 
 % DOCUMENT
 
