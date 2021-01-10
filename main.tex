@@ -19,12 +19,35 @@
 
 \usepackage{hyperref}
 \hypersetup{
-	colorlinks=true,
+	hidelinks,
+	backref=true,
+	pagebackref=true,
+	hyperindex=true,
+	colorlinks=false,
+	breaklinks=true,
 	linkcolor=DarkBlue_Color,
 	filecolor=DarkBlue_Color,      
 	urlcolor=DarkBlue_Color,
+	bookmarks=true,
+	bookmarksopen=false
 }
+
 \urlstyle{same}
+
+\usepackage{bookmark}
+\bookmarksetup{
+	open,
+	numbered,
+	addtohook={%
+		\ifnum\bookmarkget{level}=0 % chapter
+		\bookmarksetup{bold}%
+		\fi
+		\ifnum\bookmarkget{level}=-1 % part
+		\bookmarksetup{color=ocre,bold}%
+		\fi
+	}
+}
+
 
 % THEOREMS
 
@@ -113,6 +136,27 @@
 \usepackage[utf8]{inputenc} % Required for including letters with accents
 \usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
 
+
+%	SECTION NUMBERING IN THE MARGIN
+
+\makeatletter
+\renewcommand{\@seccntformat}[1]{\llap{\textcolor{ocre}{\csname the#1\endcsname}\hspace{1em}}}                    
+\renewcommand{\section}{\@startsection{section}{1}{\z@}
+	{-4ex \@plus -1ex \@minus -.4ex}
+	{1ex \@plus.2ex }
+	{\normalfont\large\sffamily\bfseries}}
+\renewcommand{\subsection}{\@startsection {subsection}{2}{\z@}
+	{-3ex \@plus -0.1ex \@minus -.4ex}
+	{0.5ex \@plus.2ex }
+	{\normalfont\sffamily\bfseries}}
+\renewcommand{\subsubsection}{\@startsection {subsubsection}{3}{\z@}
+	{-2ex \@plus -0.1ex \@minus -.2ex}
+	{.2ex \@plus.2ex }
+	{\normalfont\small\sffamily\bfseries}}                        
+\renewcommand\paragraph{\@startsection{paragraph}{4}{\z@}
+	{-2ex \@plus-.2ex \@minus .2ex}
+	{.1ex}
+	{\normalfont\small\sffamily\bfseries}}
 
 % DOCUMENT
 
