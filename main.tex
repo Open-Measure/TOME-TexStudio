@@ -18,8 +18,28 @@
 \definecolor{StandardGrey_Color}{RGB}{179,179,179} 
 
 
+% HORIZONTAL LISTS
+% Will be used for Related Terms, etc. in the Dictionary part.
+% References:
+% - https://tex.stackexchange.com/questions/146306/how-to-make-horizontal-lists
 
+\usepackage{tasks}
+\usepackage{amssymb}
+\settasks{label-format={\color{LightBlue_Color!70!black}\large\bfseries}, label-align=center, label-offset={10mm}, label-width={10mm}, item-indent={5mm}, item-format={\scshape\small}, column-sep={3mm}, after-item-skip=-1mm, after-skip={3mm}
+}
 
+%		\begin{tasks}[style=itemize, column-sep=-35mm, label-align=left, label-offset={0mm}, label-width={3mm}, item-indent={0mm}](6)%
+%	\task One
+%	\task Two
+%	\task Three
+%	\task Four
+%	\task Five
+%	\task Six
+%	\task Seven
+%	\task Eight
+%	\task Nine
+%	\task Ten
+%\end{tasks}
 
 %----------------------------------------------------------------------------------------
 %	HEADERS AND FOOTERS
@@ -348,11 +368,25 @@
 %	PART
 %----------------------------------------------------------------------------------------
 
-\part{Part 1}		
+\part{Part 1 - Dictionary Entry Sample}		
 		
 	\paragraph{} content \emph{text}
 	
 	\subsubsection*{Term}{
+		
+		\begin{tasks}[style=itemize, column-sep=-35mm, label-align=left, label-offset={0mm}, label-width={3mm}, item-indent={0mm}](6)%
+			\task One
+			\task Two
+			\task Three
+			\task Four
+			\task Five
+			\task Six
+			\task Seven
+			\task Eight
+			\task Nine
+			\task Ten
+		\end{tasks}
+		
 		\begin{DIC_Def}{}{}This is a definition.\end{DIC_Def}
 		\begin{DIC_Def}{Context}{}This is a definition.\end{DIC_Def}
 		\begin{DIC_BlockQuote}This is a quote.\end{DIC_BlockQuote}
